@@ -18,6 +18,8 @@
         <thead>
             <tr>
                 <th>Nama</th>
+                <th>Fakutltas</th>
+                <th>Logo</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -25,6 +27,8 @@
         @foreach ($prodis as $item)
             <tr>
                 <td> {{ $item->nama }} </td>
+                <td> {{ $item->fakultas->nama }} </td>
+                <td> <img src = " {{ $asset('storage/'.$item->foto)}} " width="100"></td>
                 <td>
                     <a href="{{ url('prodi/'.$item->id) }}" class="btn btn-warning">Detail</a>
                     <a href="{{ url('prodi/'.$item->id.' /edit) }}" class="btn btn-info">Ubah</a>

@@ -12,17 +12,22 @@
         <div class ="row pt-4">
             <div class ="col">
                 <h2>Form Prodi</h2>
+                
                 @if (session()->has('info'))
                 <div class="alert alert-success">
                     {{ session()->get('info') }}
                 </div>
-                <form action="{{url('prodi/store')}}" method ="post">@csrf     
+                <form action="{{url('prodi/store')}}" method ="post" enctype="multipart/form-data">
                     <div class ="form-group">
                         <label for="nama">Nama</label>     
                         <input type="text" name="nama" id="nama" class="form-control" value="{{ old('nama') }}">
                         @error('nama')
                             <div class ="text-danger"> {{ $message }} </div>
                         @enderror
+                    </div>
+                    <div class="form-group"> 
+                        <label for="foto">Gambar/Logo</label>
+                        <input type="file" name="foto" class="form-control">
                     </div>
                     <button type ="submit" class ="btn btn-primary mt-2">Simpan</button>
                 </form>

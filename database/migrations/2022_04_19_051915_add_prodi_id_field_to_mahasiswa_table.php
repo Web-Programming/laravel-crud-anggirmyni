@@ -14,9 +14,7 @@ class AddProdiIdFieldToMahasiswaTable extends Migration
     public function up()
     {
         Schema::table('mahasiswa', function (Blueprint $table) {
-            //untuk table yang namatabels    
-            //$table->foreignId("prodi_id")->after("alamat")->constrained()
-            //    ->onDelete('cascade')->onUpdate("cascade");
+        
 
             $table->unsignedBigInteger('prodi_id')->after('alamat');
             $table->foreign('prodi_id')->references('id')->on('prodi')
